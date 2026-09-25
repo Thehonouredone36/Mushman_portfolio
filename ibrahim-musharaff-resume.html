@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ibrahim Musharaff — Resume</title>
+
+<style>
+:root{
+  --bg:#090b0d;
+  --surface:#11151a;
+  --surface2:#151a20;
+  --border:#252b32;
+  --text:#f2f4f5;
+  --muted:#9aa3ad;
+  --accent:#63e6be;
+  --max:900px;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  line-height:1.6;
+}
+
+a{
+  color:inherit;
+}
+
+.page{
+  width:min(calc(100% - 36px),var(--max));
+  margin:auto;
+  padding:45px 0 60px;
+}
+
+/* HEADER */
+
+header{
+  display:flex;
+  justify-content:space-between;
+  gap:35px;
+  padding-bottom:35px;
+  border-bottom:1px solid var(--border);
+}
+
+.name{
+  font-size:clamp(2.8rem,7vw,5rem);
+  line-height:.95;
+  letter-spacing:-.065em;
+  font-weight:850;
+  margin:0 0 14px;
+}
+
+.name span{
+  color:var(--accent);
+}
+
+.title{
+  color:var(--accent);
+  text-transform:uppercase;
+  letter-spacing:.13em;
+  font-size:.78rem;
+  font-weight:700;
+  margin-bottom:13px;
+}
+
+.intro{
+  color:var(--muted);
+  max-width:570px;
+  font-size:1rem;
+}
+
+.contact{
+  min-width:220px;
+  display:flex;
+  flex-direction:column;
+  gap:7px;
+  text-align:right;
+  font-size:.82rem;
+}
+
+.contact a{
+  color:var(--muted);
+  text-decoration:none;
+}
+
+.contact a:hover{
+  color:var(--accent);
+}
+
+/* STATS */
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1px;
+  background:var(--border);
+  border:1px solid var(--border);
+  margin:28px 0;
+  border-radius:12px;
+  overflow:hidden;
+}
+
+.stat{
+  background:var(--surface);
+  padding:18px 12px;
+  text-align:center;
+}
+
+.stat strong{
+  display:block;
+  color:var(--accent);
+  font-size:1.7rem;
+  letter-spacing:-.04em;
+}
+
+.stat span{
+  display:block;
+  color:var(--muted);
+  font-size:.72rem;
+  line-height:1.35;
+}
+
+/* SECTIONS */
+
+.section{
+  margin-top:34px;
+}
+
+.section-title{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  color:var(--accent);
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  font-size:.72rem;
+  font-weight:800;
+  margin-bottom:18px;
+}
+
+.section-title::after{
+  content:"";
+  height:1px;
+  flex:1;
+  background:var(--border);
+}
+
+/* EXPERIENCE */
+
+.experience{
+  display:flex;
+  flex-direction:column;
+  gap:24px;
+}
+
+.role{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:21px;
+}
+
+.role-head{
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+  margin-bottom:3px;
+}
+
+.role h3{
+  margin:0;
+  font-size:1.05rem;
+}
+
+.date{
+  color:var(--muted);
+  font-size:.75rem;
+  white-space:nowrap;
+}
+
+.company{
+  color:var(--accent);
+  font-size:.82rem;
+  margin-bottom:10px;
+}
+
+.role ul{
+  padding:0;
+  margin:0;
+  list-style:none;
+}
+
+.role li{
+  color:var(--muted);
+  font-size:.84rem;
+  padding-left:17px;
+  position:relative;
+  margin-bottom:5px;
+}
+
+.role li::before{
+  content:"→";
+  position:absolute;
+  left:0;
+  color:var(--accent);
+}
+
+/* TWO COLUMN */
+
+.two-col{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+
+.card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:21px;
+}
+
+.card h3{
+  margin:0 0 14px;
+  font-size:1rem;
+}
+
+.tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+}
+
+.tag{
+  border:1px solid var(--border);
+  background:var(--surface2);
+  color:var(--muted);
+  padding:6px 9px;
+  border-radius:7px;
+  font-size:.75rem;
+}
+
+.tag.highlight{
+  border-color:var(--accent);
+  color:var(--accent);
+}
+
+/* KNOWLEDGE */
+
+.knowledge{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:9px;
+}
+
+.knowledge div{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:8px;
+  padding:10px;
+  color:var(--muted);
+  font-size:.76rem;
+}
+
+.knowledge div::before{
+  content:"◆";
+  color:var(--accent);
+  font-size:.42rem;
+  margin-right:8px;
+  vertical-align:middle;
+}
+
+/* ONCHAIN */
+
+.wallet{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:21px;
+}
+
+.wallet-label{
+  color:var(--muted);
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  font-size:.67rem;
+  margin-bottom:8px;
+}
+
+.address{
+  color:var(--accent);
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+  font-size:.8rem;
+  word-break:break-all;
+  text-decoration:none;
+}
+
+.wallet-links{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:15px;
+}
+
+.wallet-links a{
+  text-decoration:none;
+  border:1px solid var(--border);
+  padding:7px 10px;
+  border-radius:7px;
+  color:var(--muted);
+  font-size:.72rem;
+}
+
+.wallet-links a:hover{
+  color:var(--accent);
+  border-color:var(--accent);
+}
+
+/* EDUCATION */
+
+.education{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:21px;
+}
+
+.education h3{
+  margin:0;
+  font-size:1rem;
+}
+
+.education p{
+  color:var(--muted);
+  margin:5px 0 0;
+  font-size:.82rem;
+}
+
+/* FOOTER */
+
+footer{
+  margin-top:40px;
+  padding-top:22px;
+  border-top:1px solid var(--border);
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+  color:var(--muted);
+  font-size:.72rem;
+}
+
+.back{
+  color:var(--accent);
+  text-decoration:none;
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+  .page{
+    width:min(calc(100% - 26px),var(--max));
+    padding-top:25px;
+  }
+
+  header{
+    flex-direction:column;
+  }
+
+  .contact{
+    text-align:left;
+    min-width:0;
+  }
+
+  .stats{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .two-col{
+    grid-template-columns:1fr;
+  }
+
+  .knowledge{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .role-head{
+    flex-direction:column;
+    gap:2px;
+  }
+
+  .date{
+    white-space:normal;
+  }
+
+  footer{
+    flex-direction:column;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="page">
+
+<header>
+
+  <div>
+
+    <div class="title">
+      Web3 Community Manager · Content · Growth
+    </div>
+
+    <h1 class="name">
+      Ibrahim<br>
+      <span>Musharaff</span>
+    </h1>
+
+    <p class="intro">
+      Web3 community manager, content creator and growth-focused
+      operator working across community, content and on-chain ecosystems.
+    </p>
+
+  </div>
+
+  <div class="contact">
+
+    <a href="https://x.com/Mushman47" target="_blank">
+      X · @Mushman47
+    </a>
+
+    <a href="https://t.me/Mushman36" target="_blank">
+      Telegram · @Mushman36
+    </a>
+
+    <a href="https://warpcast.com/Mushman47" target="_blank">
+      Farcaster · @Mushman47
+    </a>
+
+    <a href="mailto:musharaff36@gmail.com">
+      musharaff36@gmail.com
+    </a>
+
+  </div>
+
+</header>
+
+
+<!-- KEY METRICS -->
+
+<div class="stats">
+
+  <div class="stat">
+    <strong>1,549</strong>
+    <span>Discord members managed</span>
+  </div>
+
+  <div class="stat">
+    <strong>100K+</strong>
+    <span>Recent X impressions</span>
+  </div>
+
+  <div class="stat">
+    <strong>1.5K</strong>
+    <span>X followers</span>
+  </div>
+
+  <div class="stat">
+    <strong>3.8%</strong>
+    <span>Recent average engagement</span>
+  </div>
+
+</div>
+
+
+<!-- EXPERIENCE -->
+
+<section class="section">
+
+<div class="section-title">
+  Experience
+</div>
+
+<div class="experience">
+
+
+<div class="role">
+
+<div class="role-head">
+
+<h3>
+Community Manager
+</h3>
+
+<div class="date">
+2025 — Present
+</div>
+
+</div>
+
+<div class="company">
+Dropsy Protocol · Solana
+</div>
+
+<ul>
+
+<li>
+Manage and moderate the project's Discord community,
+supporting a community of over 1,500 members.
+</li>
+
+<li>
+Design and support recurring community activities,
+games and educational sessions to maintain engagement.
+</li>
+
+<li>
+Review and support Zealy campaigns and community quests.
+</li>
+
+<li>
+Create educational content that helps community members
+understand the product and relevant Web3 concepts.
+</li>
+
+<li>
+Support onboarding, community conversations and
+day-to-day member questions.
+</li>
+
+</ul>
+
+</div>
+
+
+<div class="role">
+
+<div class="role-head">
+
+<h3>
+Creator Partnership Support
+</h3>
+
+<div class="date">
+2026
+</div>
+
+</div>
+
+<div class="company">
+AdsPower
+</div>
+
+<ul>
+
+<li>
+Supported creator-facing outreach and campaign activity
+within a Web3-oriented audience.
+</li>
+
+<li>
+Assisted with communication and coordination around
+creator participation.
+</li>
+
+</ul>
+
+</div>
+
+
+<div class="role">
+
+<div class="role-head">
+
+<h3>
+Web3 Content Creator
+</h3>
+
+<div class="date">
+2023 — Present
+</div>
+
+</div>
+
+<div class="company">
+Independent
+</div>
+
+<ul>
+
+<li>
+Create research-led content covering Web3 ecosystems,
+DeFi concepts, protocols and emerging narratives.
+</li>
+
+<li>
+Develop educational X posts and threads designed to
+turn technical ideas into understandable content.
+</li>
+
+<li>
+Create visual content and campaign-focused material
+for Web3 projects.
+</li>
+
+</ul>
+
+</div>
+
+
+<div class="role">
+
+<div class="role-head">
+
+<h3>
+Campaign Participant & Ambassador
+</h3>
+
+<div class="date">
+2022 — Present
+</div>
+
+</div>
+
+<div class="company">
+Web3 Ecosystem · Zealy · Galxe · TaskOn · Intract
+</div>
+
+<ul>
+
+<li>
+Participate in ecosystem campaigns, testnets,
+points programs and on-chain activities.
+</li>
+
+<li>
+Develop practical understanding of community campaigns,
+quest systems and user participation mechanics.
+</li>
+
+</ul>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- SKILLS + WEB3 -->
+
+<section class="section">
+
+<div class="section-title">
+  Skills
+</div>
+
+<div class="two-col">
+
+
+<div class="card">
+
+<h3>
+Community & Growth
+</h3>
+
+<div class="tags">
+
+<span class="tag highlight">
+Community Management
+</span>
+
+<span class="tag highlight">
+Discord Moderation
+</span>
+
+<span class="tag highlight">
+Community Engagement
+</span>
+
+<span class="tag highlight">
+Growth Strategy
+</span>
+
+<span class="tag highlight">
+Campaign Management
+</span>
+
+<span class="tag highlight">
+User Onboarding
+</span>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+Content & Outreach
+</h3>
+
+<div class="tags">
+
+<span class="tag">
+X / Twitter
+</span>
+
+<span class="tag">
+Content Writing
+</span>
+
+<span class="tag">
+Research
+</span>
+
+<span class="tag">
+Threads
+</span>
+
+<span class="tag">
+Creator Outreach
+</span>
+
+<span class="tag">
+Visual Content
+</span>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+Web3 Platforms
+</h3>
+
+<div class="tags">
+
+<span class="tag">
+Discord
+</span>
+
+<span class="tag">
+Telegram
+</span>
+
+<span class="tag">
+Farcaster
+</span>
+
+<span class="tag">
+Zealy
+</span>
+
+<span class="tag">
+Galxe
+</span>
+
+<span class="tag">
+TaskOn
+</span>
+
+<span class="tag">
+Intract
+</span>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+Professional Strengths
+</h3>
+
+<div class="tags">
+
+<span class="tag">
+Communication
+</span>
+
+<span class="tag">
+Community Operations
+</span>
+
+<span class="tag">
+Research
+</span>
+
+<span class="tag">
+Content Strategy
+</span>
+
+<span class="tag">
+Event Coordination
+</span>
+
+<span class="tag">
+AI-Assisted Workflow
+</span>
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- WEB3 KNOWLEDGE -->
+
+<section class="section">
+
+<div class="section-title">
+  Web3 Knowledge
+</div>
+
+<div class="knowledge">
+
+<div>
+Transactions & Signatures
+</div>
+
+<div>
+Bitcoin Fundamentals
+</div>
+
+<div>
+Smart Contracts
+</div>
+
+<div>
+EVM & Wallets
+</div>
+
+<div>
+UTXO vs Account Model
+</div>
+
+<div>
+Nodes & Consensus
+</div>
+
+<div>
+Gas & Fee Mechanics
+</div>
+
+<div>
+Scalability & L2s
+</div>
+
+<div>
+DeFi Mechanisms
+</div>
+
+<div>
+Tokenomics
+</div>
+
+<div>
+Airdrop Systems
+</div>
+
+<div>
+Testnet Participation
+</div>
+
+</div>
+
+</section>
+
+
+<!-- EDUCATION -->
+
+<section class="section">
+
+<div class="section-title">
+  Education
+</div>
+
+<div class="education">
+
+<h3>
+B.Eng. Mechanical Engineering
+</h3>
+
+<p>
+Kwara State University (KWASU), Malete · Mechanical Engineering
+</p>
+
+</div>
+
+</section>
+
+
+<!-- ON-CHAIN -->
+
+<section class="section">
+
+<div class="section-title">
+  On-Chain Identity
+</div>
+
+<div class="wallet">
+
+<div class="wallet-label">
+EVM Wallet
+</div>
+
+<a
+class="address"
+href="https://etherscan.io/address/0x27B4d56564887955b1a6F0315Af74e34eAa6E833"
+target="_blank"
+rel="noopener"
+>
+0x27B4d56564887955b1a6F0315Af74e34eAa6E833
+</a>
+
+<div class="wallet-links">
+
+<a
+href="https://etherscan.io/address/0x27B4d56564887955b1a6F0315Af74e34eAa6E833"
+target="_blank"
+rel="noopener"
+>
+Etherscan ↗
+</a>
+
+<a
+href="https://debank.com/profile/0x27B4d56564887955b1a6F0315Af74e34eAa6E833"
+target="_blank"
+rel="noopener"
+>
+DeBank ↗
+</a>
+
+<a
+href="https://zerion.io/0x27B4d56564887955b1a6F0315Af74e34eAa6E833/overview"
+target="_blank"
+rel="noopener"
+>
+Zerion ↗
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<footer>
+
+<div>
+Ibrahim Musharaff · Web3 Community & Growth
+</div>
+
+<a
+class="back"
+href="index.html"
+>
+← Back to portfolio
+</a>
+
+</footer>
+
+</div>
+
+</body>
+</html>
